@@ -11,10 +11,9 @@ int main()
 {
 
     int op = 0;
-
     int *vetor;
     int *vetorAux;
-    int tam = 10000;
+    int tam = 100000;
 
     vetor = (int *)malloc(tam * sizeof(int));
     vetorAux = (int *)malloc(tam * sizeof(int));
@@ -47,7 +46,6 @@ int main()
             printf("\n");
             // imprimirVetor(vetor, &tam);
             printf("-------------------------SEQUENCIAL-------------------------\n");
-            free(vetor);
         }
         break;
 
@@ -55,7 +53,7 @@ int main()
         {
             int numThreads;
 
-            omp_set_num_threads(10);
+            omp_set_num_threads(4);
             double start = omp_get_wtime();
             printf("-------------------------PARALELIZADO-------------------------\n");
 #pragma omp parallel
@@ -70,7 +68,6 @@ int main()
             printf("\n");
             // imprimirVetor(vetor, &tam);
             printf("\n");
-            free(vetorAux);
         }
         break;
 

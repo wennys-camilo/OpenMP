@@ -4,7 +4,7 @@
 
 void imprimirVetor(int *vetor, int *tamanho);
 void bubbleSort(int *vetor, int *tamanho);
-void swap(int *xp, int *yp);
+void swap(int *esq, int *dir);
 int menu();
 
 int main()
@@ -45,7 +45,7 @@ int main()
             double end = omp_get_wtime();
             printf("Tempo: %f", end - start);
             printf("\n");
-            //imprimirVetor(vetor, &tam);
+            // imprimirVetor(vetor, &tam);
             printf("-------------------------SEQUENCIAL-------------------------\n");
         }
         break;
@@ -67,7 +67,7 @@ int main()
             double end = omp_get_wtime();
             printf("Tempo: %f", end - start);
             printf("\n");
-            //imprimirVetor(vetor, &tam);
+            // imprimirVetor(vetor, &tam);
             printf("\n");
         }
         break;
@@ -98,11 +98,11 @@ void imprimirVetor(int *vetor, int *tamanho)
     printf("\n");
 }
 
-void swap(int *xp, int *yp)
+void swap(int *esq, int *dir)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+    int aux = *esq;
+    *esq = *dir;
+    *dir = aux;
 }
 
 void bubbleSort(int *vetor, int *tamanho)

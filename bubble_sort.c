@@ -33,7 +33,7 @@ int main()
         switch (op)
         {
         case 0:
-            printf("Obrigado!\n");
+            printf("Saindo...!\n");
             break;
 
         case 1:

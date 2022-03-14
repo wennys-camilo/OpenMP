@@ -47,6 +47,7 @@ int main()
             printf("\n");
             // imprimirVetor(vetor, &tam);
             printf("-------------------------SEQUENCIAL-------------------------\n");
+            free(vetor);
         }
         break;
 
@@ -61,7 +62,7 @@ int main()
             {
                 numThreads = omp_get_num_threads();
 
-                bubbleSort(vetor, &tam);
+                bubbleSort(vetorAux, &tam);
             }
             printf("Número de Threads %d\n", numThreads);
             double end = omp_get_wtime();
@@ -69,6 +70,7 @@ int main()
             printf("\n");
             // imprimirVetor(vetor, &tam);
             printf("\n");
+            free(vetorAux);
         }
         break;
 

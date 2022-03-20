@@ -13,14 +13,14 @@ int main()
     int op = 0;
     int *vetor;
     int *vetorAux;
-    int tam = 100000;
+    int tam = 50;
 
     vetor = (int *)malloc(tam * sizeof(int));
     vetorAux = (int *)malloc(tam * sizeof(int));
 
     for (int i = 0; i < tam; i++)
     {
-        vetor[i] = rand() % 20000;
+        vetor[i] = rand() % 100;
     }
 
     vetorAux = vetor;
@@ -38,6 +38,7 @@ int main()
 
         case 1:
         {
+            imprimirVetor(vetorAux, &tam);
             printf("-------------------------SEQUENCIAL-------------------------\n");
             double start = omp_get_wtime();
             bubbleSort(vetor, &tam);
@@ -108,6 +109,7 @@ void bubbleSort(int *vetor, int *tamanho)
 {
     int i, j;
     for (i = 0; i < *tamanho - 1; i++)
+        //#pragma omp parallel for
         for (j = 0; j < *tamanho - i - 1; j++)
             if (vetor[j] > vetor[j + 1])
                 swap(&vetor[j], &vetor[j + 1]);
